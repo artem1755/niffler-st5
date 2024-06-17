@@ -12,24 +12,25 @@ public class MainPage {
     private final SelenideElement deleteSpendingBtn = $(".spendings__bulk-actions button");
     private final ElementsCollection tableWithSpending = $(".spendings-table tbody")
             .$$("tr");
+    
+    public SelenideElement searchSpendingRowByText(String text) {
+        return tableWithSpending.find(text(text))
+                .scrollIntoView(true);
 
 
-    public SelenideElement searchSpendingRowByText(String text){
-       return tableWithSpending.find(text(text))
-            .scrollIntoView(true);
     }
-//
-    public MainPage chooseFirstSpending(SelenideElement spendingRow){
+
+    public MainPage chooseFirstSpending(SelenideElement spendingRow) {
         spendingRow.$$("td").first().scrollTo().click();
         return this;
     }
 
-    public MainPage clickDeleteSpendingBtn(){
+    public MainPage clickDeleteSpendingBtn() {
         deleteSpendingBtn.click();
         return this;
     }
 
-    public void checkSpendingTable(int size){
+    public void checkSpendingTable(int size) {
         tableWithSpending.shouldHave(size(size));
     }
 

@@ -12,17 +12,17 @@ public class LoginPage {
     private final SelenideElement password = $("input[name='password']");
     private final SelenideElement submitButton = $("button[type='submit']");
 
-    public LoginPage setUsername(String name){
+    public LoginPage setUsername(String name) {
         userName.setValue(name);
         return this;
     }
 
-    public LoginPage setPassword(String pwd){
+    public LoginPage setPassword(String pwd) {
         password.setValue(pwd);
         return this;
     }
 
-    public LoginPage clickSubmit(){
+    public LoginPage clickSubmit() {
         submitButton.click();
         return this;
     }

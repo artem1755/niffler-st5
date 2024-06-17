@@ -8,18 +8,17 @@ import static com.codeborne.selenide.Selenide.$;
 public class AuthPage {
     private final SelenideElement loginBtn = $("a[href*='redirect']");
     private final SelenideElement registerBtn = $("a[href*='register']");
-    public AuthPage openPage(){
+
+    public AuthPage openPage() {
         Selenide.open("http://127.0.0.1:3000/");
         return this;
     }
 
-    public AuthPage clickLoginBtn(){
+    public void clickLoginBtn() {
         loginBtn.click();
-        return this;
     }
 
-    public AuthPage clickRegisterBtn(){
+    public void clickRegisterBtn() {
         registerBtn.click();
-        return this;
     }
 }

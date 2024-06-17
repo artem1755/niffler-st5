@@ -1,8 +1,6 @@
 package guru.qa.niffler.test;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.*;
 import guru.qa.niffler.jupiter.annotation.GenerateCategory;
 import guru.qa.niffler.jupiter.annotation.GenerateSpend;
 import guru.qa.niffler.jupiter.annotation.meta.WebTest;
@@ -21,6 +19,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.ByteArrayInputStream;
 import java.util.Objects;
 
+import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -46,7 +46,6 @@ public class SpendingTest {
     void doLogin() {
         // createSpend
         authPage.openPage().clickLoginBtn();
-
         loginPage.setUsername("dima")
                 .setPassword("12345")
                 .clickSubmit();
@@ -83,7 +82,7 @@ public class SpendingTest {
     )
     @Test
     void spendingShouldBeDeletedAfterTableAction(SpendJson spendJson) {
-        SelenideElement searchingRow =  mainPage.searchSpendingRowByText(spendJson.description());
+        SelenideElement searchingRow = mainPage.searchSpendingRowByText(spendJson.description());
 
         mainPage.chooseFirstSpending(searchingRow)
                 .clickDeleteSpendingBtn()
