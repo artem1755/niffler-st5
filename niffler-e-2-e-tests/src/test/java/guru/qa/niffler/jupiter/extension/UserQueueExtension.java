@@ -65,4 +65,5 @@ public class UserQueueExtension implements
         return extensionContext.getStore(NAMESPACE)
                 .get(extensionContext.getUniqueId(), UserJson.class);
     }
+
 }
