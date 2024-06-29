@@ -20,7 +20,7 @@ public class MainPage {
     }
 
     public MainPage chooseFirstSpending(SelenideElement spendingRow) {
-        spendingRow.$$("td").first().scrollTo().click();
+        spendingRow.$("td").scrollTo().click();
         return this;
     }
 
