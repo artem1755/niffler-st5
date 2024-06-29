@@ -93,7 +93,7 @@ public class UsersQueueExtension implements
         Parameter parameter = parameterContext.getParameter();
         boolean isUserJson = parameter.getType().isAssignableFrom(UserJson.class);
         boolean hasUserAnnotation = parameter.isAnnotationPresent(User.class);
-        return isUserJson ? (hasUserAnnotation ? true : false) : false;
+        return isUserJson && hasUserAnnotation;
     }
 
     @Override
